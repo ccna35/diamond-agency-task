@@ -1,8 +1,13 @@
-import AboutUs from "../components/Navbar/sections/About Us/AboutUs";
-import Causes from "../components/Navbar/sections/Causes/Causes";
-import Donation from "../components/Navbar/sections/Donation/Donation";
-import Hero from "../components/Navbar/sections/Hero/Hero";
-import Mission from "../components/Navbar/sections/Mission/Mission";
+import AboutUs from "../components/Sections/About Us/AboutUs";
+import Blog from "../components/Sections/Blog/Blog";
+import Causes from "../components/Sections/Causes/Causes";
+import Donation from "../components/Sections/Donation/Donation";
+import Events from "../components/Sections/Events/Events";
+import Hero from "../components/Sections/Hero/Hero";
+import Mission from "../components/Sections/Mission/Mission";
+import Sponsors from "../components/Sections/Sponsors/Sponsors";
+import Stats from "../components/Sections/Stats/Stats";
+import Testimonials from "../components/Sections/Testimonials/Testimonials";
 
 const HomePage = () => {
   return (
@@ -12,6 +17,11 @@ const HomePage = () => {
       <AboutUs />
       <Causes />
       <Donation />
+      <Stats />
+      <Events />
+      <Testimonials />
+      <Blog />
+      <Sponsors />
     </main>
   );
 };

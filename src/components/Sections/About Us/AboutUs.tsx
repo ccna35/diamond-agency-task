@@ -1,4 +1,4 @@
-import PrimaryButton from "../../../Buttons/PrimaryButton";
+import PrimaryButton from "../../Buttons/PrimaryButton";
 
 const AboutUs = () => {
   return (
@@ -14,7 +14,7 @@ const AboutUs = () => {
             is The Non Profitable Organization.
           </h2>
         </div>
-        <div className="grid grid-cols-2 gap-24 py-16">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-24 py-16">
           <div className="flex gap-4">
             <div>
               <img

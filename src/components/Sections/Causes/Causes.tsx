@@ -15,7 +15,7 @@ const Causes = () => {
             Donate For Poor People. Causes of Givest
           </h2>
         </div>
-        <div className="grid grid-cols-3 gap-16">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-16">
           <Card />
           <Card />
           <Card />

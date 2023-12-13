@@ -16,4 +16,12 @@
   .gradientBg {
     @apply bg-gradient-to-r from-secondary to-accent;
   }
+
+  .centerAbsolute {
+    @apply absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2;
+  }
+
+  .footerLink {
+    @apply text-primary relative before:absolute before:left-0 before:w-full before:origin-right before:scale-x-0 before:h-[1px] before:bg-accent before:-bottom-1 hover:before:origin-left hover:before:scale-x-100 before:transition-transform before:duration-500;
+  }
 }

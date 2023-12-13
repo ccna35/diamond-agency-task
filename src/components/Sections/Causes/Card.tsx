@@ -1,5 +1,5 @@
 import { FaRegUser } from "react-icons/fa6";
-import SecondaryButton from "../../../Buttons/SecondaryButton";
+import SecondaryButton from "../../Buttons/SecondaryButton";
 
 const Card = () => {
   return (
@@ -8,7 +8,7 @@ const Card = () => {
         <img
           src="./causes/01.webp"
           alt=""
-          className="w-full h-full transition-all duration-500 group-hover:scale-110"
+          className="w-full h-full object-cover transition-all duration-500 group-hover:scale-110"
         />
       </div>
       <div className="py-8 px-4 bg-[#F7F7F7] flex flex-col gap-4">

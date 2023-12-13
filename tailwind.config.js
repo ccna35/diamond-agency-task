@@ -10,9 +10,6 @@ module.exports = {
     container: {
       center: true,
       padding: "2rem",
-      // screens: {
-      //   "2xl": "1400px",
-      // },
     },
     extend: {
       colors: {
@@ -20,6 +17,7 @@ module.exports = {
         accent: "#FC6539",
         secondary: "#FEA444",
         secondaryText: "#595959",
+        greyBg: "#F7F7F7",
       },
       fontFamily: {
         yeseva: ["Yeseva One", "serif"],
@@ -27,24 +25,13 @@ module.exports = {
       boxShadow: {
         navbar: "0 8px 20px 0 rgba(0, 0, 0, 0.1)",
       },
-      keyframes: {
-        fade: {
-          "0%": {
-            width: "2rem",
-            height: "2rem",
-            background: "white",
-            opacity: 0.5,
-          },
-          "100%": {
-            width: "100%",
-            height: "100%",
-            background: "white",
-            opacity: 0,
-          },
-        },
-      },
       animation: {
-        fade: "fade 1s ease-in-out 1 forwards alternate",
+        "ping-slow": "ping 2s linear infinite",
+        "ping-slower": "ping 3s linear infinite",
+      },
+      backgroundImage: {
+        headerBg:
+          "linear-gradient(to right, rgba(254,164,68,.9), rgba(252,101,57,.9)), url('./testimonials/bg-testi1.webp')",
       },
     },
   },

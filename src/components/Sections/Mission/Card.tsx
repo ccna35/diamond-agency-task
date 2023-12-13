@@ -1,5 +1,5 @@
-import { cn } from "../../../../lib/utils";
-import SecondaryButton from "../../../Buttons/SecondaryButton";
+import { cn } from "../../../lib/utils";
+import SecondaryButton from "../../Buttons/SecondaryButton";
 
 type CardProps = {
   headline: string;
