@@ -1,3 +1,7 @@
+import { useInView, useMotionValue } from "framer-motion";
+import { useEffect, useRef } from "react";
+import Card from "./Card";
+
 type StatType = {
   id: number;
   text: string;
@@ -31,31 +35,22 @@ const stats: StatType[] = [
 ];
 
 const Stats = () => {
+  const sectionRef = useRef<HTMLElement | null>(null);
+  const isInView = useInView(sectionRef, { once: true });
+
   return (
-    <section className="bg-greyBg">
-      <div className="container grid grid-cols-3">
+    <section className="bg-greyBg" ref={sectionRef}>
+      <div
+        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3"
+        style={{
+          transform: isInView ? "none" : "translateY(200px)",
+          opacity: isInView ? 1 : 0,
+          transition: "all 0.9s cubic-bezier(0.17, 0.55, 0.55, 1) 0.5s",
+        }}
+      >
         {stats.map(({ id, img, stat, symbol, text }) => {
           return (
-            <article
-              key={id}
-              className="flex gap-8 justify-center items-center py-32 px-8 border-x"
-            >
-              <div className="relative">
-                <img
-                  src="./stats/4.webp"
-                  alt=""
-                  className="absolute -left-8 w-40"
-                />
-                <img src={img} alt={text} />
-              </div>
-              <div className="flex flex-col gap-4 items-start">
-                <h2 className="font-yeseva text-5xl text-primary">
-                  {stat + symbol}
-                </h2>
-                <img src="./stats/funfact-line1.webp" alt="" />
-                <p className="text-gray-400 text-sm font-semibold">// {text}</p>
-              </div>
-            </article>
+            <Card key={id} img={img} stat={stat} symbol={symbol} text={text} />
           );
         })}
       </div>

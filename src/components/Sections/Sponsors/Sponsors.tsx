@@ -1,3 +1,6 @@
+import { useInView } from "framer-motion";
+import { useRef } from "react";
+
 const sponsors = [
   { id: 1, img: "./sponsors/1.webp" },
   { id: 2, img: "./sponsors/2.webp" },
@@ -12,9 +15,18 @@ const sponsors = [
 ];
 
 const Sponsors = () => {
+  const sectionRef = useRef<HTMLElement | null>(null);
+  const isInView = useInView(sectionRef, { once: true });
   return (
-    <section className="py-32">
-      <div className="container flex flex-col md:flex-row gap-16 items-center">
+    <section className="py-16" ref={sectionRef}>
+      <div
+        className="container flex flex-col md:flex-row gap-16 items-center"
+        style={{
+          transform: isInView ? "none" : "translateY(200px)",
+          opacity: isInView ? 1 : 0,
+          transition: "all 0.9s cubic-bezier(0.17, 0.55, 0.55, 1) 0.5s",
+        }}
+      >
         <div>
           <div className="relative">
             <h2 className="text-5xl text-primary text-center md:text-left font-yeseva">

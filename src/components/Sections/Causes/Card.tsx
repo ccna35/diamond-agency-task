@@ -1,12 +1,16 @@
 import { FaRegUser } from "react-icons/fa6";
 import SecondaryButton from "../../Buttons/SecondaryButton";
 
-const Card = () => {
+type CardProps = {
+  img: string;
+};
+
+const Card = ({ img }: CardProps) => {
   return (
     <article className="group">
       <div className="h-[12.25rem] overflow-hidden">
         <img
-          src="./causes/01.webp"
+          src={img}
           alt=""
           className="w-full h-full object-cover transition-all duration-500 group-hover:scale-110"
         />
@@ -15,20 +19,20 @@ const Card = () => {
         <div className="grid grid-cols-3 gap-2">
           <div className="font-yeseva p-2 bg-white group/item hover:gradientBg">
             <p className="group-hover/item:text-white">Goal:</p>
-            <p className="text-xl gradient-text group-hover/item:text-white">
+            <p className="text-base md:text-xl gradient-text group-hover/item:text-white">
               $ 5,000
             </p>
           </div>
           <div className="font-yeseva p-2 bg-white group/item hover:gradientBg">
             <p className="group-hover/item:text-white">Goal:</p>
-            <p className="text-xl gradient-text group-hover/item:text-white">
-              $ 5,000
+            <p className="text-base md:text-xl gradient-text group-hover/item:text-white">
+              $ 2,000
             </p>
           </div>
           <div className="font-yeseva p-2 bg-white group/item hover:gradientBg">
             <p className="group-hover/item:text-white">Goal:</p>
-            <p className="text-xl gradient-text group-hover/item:text-white">
-              $ 5,000
+            <p className="text-base md:text-xl gradient-text group-hover/item:text-white">
+              $ 1,000
             </p>
           </div>
         </div>
@@ -38,7 +42,7 @@ const Card = () => {
         <p className="text-secondaryText">
           Lorem Ipsum is simply dummy text of the industry's since the unknown.
         </p>
-        <div className="flex justify-between items-center">
+        <div className="flex justify-between items-center flex-wrap">
           <span className="w-10 h-10 shadow-sm grid place-items-center bg-white rounded-full text-accent">
             <FaRegUser />
           </span>

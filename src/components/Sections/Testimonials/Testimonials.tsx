@@ -1,6 +1,7 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { cn } from "../../../lib/utils";
 import { FaArrowLeft, FaArrowRight, FaLeftRight } from "react-icons/fa6";
+import { useInView } from "framer-motion";
 
 type ReviewType = {
   id: number;
@@ -41,10 +42,20 @@ const Testimonials = () => {
     return setActiveSlide((prev) => prev - 1);
   };
 
+  const sectionRef = useRef<HTMLElement | null>(null);
+  const isInView = useInView(sectionRef, { once: true });
+
   return (
-    <section className="py-32 bg-primary overflow-x-hidden">
-      <div className="container flex flex-col lg:flex-row gap-16">
-        <div className="p-8 bg-headerBg">
+    <section className="py-32 bg-primary overflow-hidden" ref={sectionRef}>
+      <div className="flex flex-col lg:flex-row gap-16 lg:h-[35rem]">
+        <div
+          className="p-8 bg-headerBg"
+          style={{
+            transform: isInView ? "none" : "translateX(-200px)",
+            opacity: isInView ? 1 : 0,
+            transition: "all 0.9s cubic-bezier(0.17, 0.55, 0.55, 1) 0.5s",
+          }}
+        >
           <p className="flex items-center">
             <span className="inline-block h-1 w-12 bg-white mr-4" />
             <span className="text-white font-semibold text-xl">
@@ -55,8 +66,15 @@ const Testimonials = () => {
             What People Say About Us.
           </h2>
         </div>
-        <div className="border border-red-500">
-          <div className="relative overflow-x-hidden border border-yellow-500 h-96">
+        <div
+          className=""
+          style={{
+            transform: isInView ? "none" : "translateY(200px)",
+            opacity: isInView ? 1 : 0,
+            transition: "all 0.9s cubic-bezier(0.17, 0.55, 0.55, 1) 0.5s",
+          }}
+        >
+          <div className="relative h-96 w-96">
             {reviews.map(({ id, img, name, position, review }, index) => {
               return (
                 <article
@@ -87,7 +105,7 @@ const Testimonials = () => {
                 </article>
               );
             })}
-            <div className="p-8 w-96 bg-slate-300 absolute -bottom-12 -right-48 inline-flex">
+            <div className="p-8 w-96 bg-slate-300 absolute -bottom-48 -right-60 inline-flex">
               <div className="flex gap-4">
                 <button
                   className="w-12 h-12 rounded-full bg-white grid place-items-center"

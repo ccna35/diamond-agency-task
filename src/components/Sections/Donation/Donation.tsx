@@ -1,7 +1,8 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { cn } from "../../../lib/utils";
 import PrimaryButton from "../../Buttons/PrimaryButton";
 import SecondaryButton from "../../Buttons/SecondaryButton";
+import { useInView } from "framer-motion";
 
 type DonnorType = { id: number; img: string; alt: string };
 
@@ -15,25 +16,43 @@ const Donation = () => {
   const [donationAmount, setDonationAmount] = useState<
     null | number | "custom"
   >(null);
+
+  const sectionRef = useRef<HTMLElement | null>(null);
+  const isInView = useInView(sectionRef, { once: true });
+
   return (
-    <section className="py-32 bg-primary overflow-hidden">
-      <div className="container grid grid-cols-2 gap-32">
-        <div className="flex flex-col items-start gap-16">
-          <div>
+    <section className="py-32 bg-primary overflow-hidden" ref={sectionRef}>
+      <div className="container grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-8">
+        <div
+          className="flex flex-col justify-center items-center lg:items-start gap-16"
+          style={{
+            transform: isInView ? "none" : "translateY(200px)",
+            opacity: isInView ? 1 : 0,
+            transition: "all 0.9s cubic-bezier(0.17, 0.55, 0.55, 1) 0.5s",
+          }}
+        >
+          <div className="flex flex-col text-center lg:text-left justify-center items-center lg:items-start gap-8">
             <p className="flex items-center">
               <span className="inline-block h-1 w-12 bg-accent mr-4" />
               <span className="text-accent font-semibold text-xl">
                 Make A Donation
               </span>
             </p>
-            <h2 className="text-5xl text-white font-yeseva max-w-3xl mt-4">
-              Need Pure Water For Mozambique People.
-            </h2>
+            <div className="relative isolate">
+              <h2 className="text-[40px] text-white font-yeseva max-w-3xl mt-4">
+                Need Pure Water For Mozambique People.
+              </h2>
+              <img
+                src="./3.webp"
+                alt=""
+                className="absolute w-36 centerAbsolute -z-10"
+              />
+            </div>
           </div>
-          <div className="inline-flex gap-4 flex-wrap">
+          <div className="inline-flex gap-4">
             <button
               className={cn(
-                "border-2 py-4 px-8 font-semibold text-white transition hover:border-accent",
+                "border-2 border-gray-400 py-2 px-4 font-semibold text-white transition hover:border-accent",
                 {
                   "border-accent": donationAmount === 20,
                 }
@@ -44,7 +63,7 @@ const Donation = () => {
             </button>
             <button
               className={cn(
-                "border-2 py-4 px-8 font-semibold text-white transition hover:border-accent",
+                "border-2 border-gray-400 py-2 px-4 font-semibold text-white transition hover:border-accent",
                 {
                   "border-accent": donationAmount === 50,
                 }
@@ -55,7 +74,7 @@ const Donation = () => {
             </button>
             <button
               className={cn(
-                "border-2 py-4 px-8 font-semibold text-white transition hover:border-accent",
+                "border-2 border-gray-400 py-2 px-4 font-semibold text-white transition hover:border-accent",
                 {
                   "border-accent": donationAmount === 200,
                 }
@@ -70,7 +89,7 @@ const Donation = () => {
               id=""
               placeholder="Custom"
               className={cn(
-                "border-2 font-semibold text-white bg-transparent placeholder:text-white focus:placeholder:text-transparent hover:border-accent focus:outline-none text-center",
+                "border-2 border-gray-400 font-semibold text-white bg-transparent placeholder:text-white focus:placeholder:text-transparent hover:border-accent focus:outline-none text-center",
                 {
                   "border-accent": donationAmount === "custom",
                 }
@@ -79,14 +98,21 @@ const Donation = () => {
             />
           </div>
           <div className="flex gap-8 flex-wrap">
-            <PrimaryButton />
+            <PrimaryButton text="Donate Now" />
             <SecondaryButton text="Join Events" />
           </div>
         </div>
-        <div className="flex flex-col gap-8">
+        <div
+          className="flex flex-col justify-center items-center lg:items-start gap-8"
+          style={{
+            transform: isInView ? "none" : "translateX(200px)",
+            opacity: isInView ? 1 : 0,
+            transition: "all 0.9s cubic-bezier(0.17, 0.55, 0.55, 1) 1s",
+          }}
+        >
           <img src="./donation/bg-donate1.webp" alt="" className="" />
           <h2 className="text-5xl text-white font-yeseva">Great Donners</h2>
-          <p className="text-secondaryText">
+          <p className="text-gray-400 text-center lg:text-left">
             Lorem Ipsum is simply dummy text of the printing and typesetting
             industry since the 1500s, when an unknown.
           </p>

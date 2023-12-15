@@ -1,5 +1,5 @@
-import { ArrowBigUp, HeartIcon, InstagramIcon } from "lucide-react";
-import { BsHeart, BsHeartFill } from "react-icons/bs";
+import { ArrowBigUp, InstagramIcon } from "lucide-react";
+import { BsHeartFill } from "react-icons/bs";
 import { Link } from "react-router-dom";
 
 const gallery = [
@@ -12,10 +12,11 @@ const gallery = [
 ];
 
 const Footer = () => {
+  const backToTop = () => window.scrollTo({ top: 0 });
   return (
-    <footer className="relative bg-primary px-4">
-      <div className="px-4 bg-greyBg py-32 z-10">
-        <div className="relative container grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+    <footer className="relative bg-primary px-4 isolate mt-32">
+      <div className="relative px-4 bg-greyBg py-32 -translate-y-20">
+        <div className="container grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-16">
           <article className="flex flex-col gap-8 items-start">
             <img src="./logo.webp" alt="Logo" />
             <p>
@@ -97,17 +98,19 @@ const Footer = () => {
               </div>
             </div>
           </article>
-          <div className="absolute -bottom-1/2 left-1/2 w-12 h-12 gradientBg rounded-full grid place-items-center">
-            <span className="text-white">
-              <ArrowBigUp />
-            </span>
-          </div>
+        </div>
+        <div className="absolute bottom-0 translate-y-1/2 -translate-x-1/2 left-1/2 w-12 h-12 gradientBg rounded-full grid place-items-center">
+          <span className="text-white cursor-pointer" onClick={backToTop}>
+            <ArrowBigUp />
+          </span>
         </div>
       </div>
-      <img
-        src="./footer/banner-title-shape.webp"
-        className="absolute bottom-0 left-0 w-full h-full object-cover"
-      />
+      <div className="absolute bottom-0 left-0 -z-10">
+        <img
+          src="./footer/banner-title-shape.webp"
+          className="w-full h-full object-cover"
+        />
+      </div>
       <div className="py-8 text-white">
         <p className="text-center">
           © 2025 <span className="text-accent">Givest</span>. Made
