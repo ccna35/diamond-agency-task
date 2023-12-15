@@ -1,5 +1,5 @@
-import { useInView, useMotionValue } from "framer-motion";
-import { useEffect, useRef } from "react";
+import { useInView } from "framer-motion";
+import { useRef } from "react";
 import Card from "./Card";
 
 type StatType = {

@@ -1,4 +1,4 @@
-import { Ref, useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import PrimaryButton from "../../Buttons/PrimaryButton";
 import {
   animate,

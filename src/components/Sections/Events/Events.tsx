@@ -1,7 +1,5 @@
 import { FaArrowRight, FaPlay } from "react-icons/fa6";
-import SecondaryButton from "../../Buttons/SecondaryButton";
 import { cn } from "../../../lib/utils";
-import { PlayCircle } from "lucide-react";
 import { useRef, useState } from "react";
 import { motion, useInView } from "framer-motion";
 

@@ -1,6 +1,6 @@
 import { useRef, useState } from "react";
 import { cn } from "../../../lib/utils";
-import { FaArrowLeft, FaArrowRight, FaLeftRight } from "react-icons/fa6";
+import { FaArrowLeft, FaArrowRight } from "react-icons/fa6";
 import { useInView } from "framer-motion";
 
 type ReviewType = {

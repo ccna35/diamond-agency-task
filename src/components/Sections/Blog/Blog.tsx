@@ -1,4 +1,4 @@
-import { FaArrowRight, FaShare } from "react-icons/fa6";
+import { FaArrowRight } from "react-icons/fa6";
 import { BsShareFill } from "react-icons/bs";
 
 import { cn } from "../../../lib/utils";
